@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import React from 'react'
 //default page that gets display. Kind of like index.hmtl
 
 

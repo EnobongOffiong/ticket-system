@@ -5,8 +5,8 @@ import Link from "next/link";
 // surronding a folder in parantheses makes it innacessible to users for things like components
 const Nav = () => {
   return (
-    <nav>
-      <div>
+    <nav className="flex bg-nav p-4 justify-between">
+      <div className="flex items-center space-x-4">
         <Link href="/">
           <FontAwesomeIcon icon ={faHome} className="icon" />
         </Link>

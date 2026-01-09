@@ -17,8 +17,18 @@ const TicketCard = () => {
       <p className="whitespace-pre-wrap">
         This is the ticket description! Please do this ticket
       </p>
-      <ProgressDisplay />
-      <StatusDisplay />
+      {/* flex grow (flex- grow 1) on this empty div allows
+       it to take up the rest of the space in the parent container if theres any extra */}
+      <div className="flex-grow"></div>
+      <div className="flex mt-2">
+        <div className="flex flex-col">
+          <p className="text-xs my-1">08/01/2023 10:22PM</p>
+          <ProgressDisplay />
+        </div>
+        <div className="flex ml-auto items-end">
+          <StatusDisplay />
+        </div>
+      </div>
     </div>
   );
 };

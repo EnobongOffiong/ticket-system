@@ -6,10 +6,11 @@ const Dashboard = () => {
   return (
     <div className="p-5">
       {/* lg: and xl: are tailwind properties that allo you to specify styling for differnet screen sizes */}
-      <div className="lg:grid grid-cols-2 xl:grid-cols-4"></div>
-      <TicketCard />
-      <TicketCard />
-      <TicketCard />
+      <div className="lg:grid grid-cols-2 xl:grid-cols-4">
+        <TicketCard />
+        <TicketCard />
+        <TicketCard />
+      </div>
     </div>
   );
 };

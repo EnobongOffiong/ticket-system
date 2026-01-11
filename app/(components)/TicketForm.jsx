@@ -130,6 +130,7 @@ const TicketForm = () => {
           step={10}
           onChange={handleChange}
         />
+        <p>Progress: {formData.progress} % </p>
 
         <label>Status</label>
         <select

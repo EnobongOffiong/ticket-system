@@ -1,6 +1,8 @@
+import TicketForm from "@/app/(components)/TicketForm";
+
 const TicketPage = async ({ params }) => {
   const { id } = await params; // params in api must be treated asynchronously using await
-  return <div>TicketPage {id}</div>;
+  return <TicketForm />;
 };
 
 export default TicketPage;

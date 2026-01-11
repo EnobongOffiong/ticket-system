@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation"; // not next/router
 import React, { useState } from "react";
 
 const TicketForm = () => {
+    const router  = useRouter()
   const handleChange = (e) => {
     const value = e.target.value;
     const name = e.target.name;
@@ -13,8 +14,22 @@ const TicketForm = () => {
     }));
   };
 
-  const handleSubmit = () => {
-    console.log("submitted");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    //relative to current page's url
+    //becomes: https://[current-domain]/api/Tickets
+    const res = await fetch("api/Tickets", {
+      method: "POST",
+      body: JSON.stringify({ formData }),
+      "content-type": "application/json",
+    });
+
+    if (!res.ok) {
+      throw new Error("Failed to create ticket");
+    }
+
+    router.refresh()
+    router.push("/")
   };
   const startingTicketData = {
     title: "",
@@ -133,17 +148,15 @@ const TicketForm = () => {
         <p>Progress: {formData.progress} % </p>
 
         <label>Status</label>
-        <select
-          name="status"
-          value={formData.status}
-          onChange={handleChange}
-        >
-            <option value ="Not started">Not started</option>
-            <option value ="Started">Started</option>
-            <option value ="Done">Done</option>
+        <select name="status" value={formData.status} onChange={handleChange}>
+          <option value="Not started">Not started</option>
+          <option value="Started">Started</option>
+          <option value="Done">Done</option>
         </select>
 
-        <button type="submit" className="btn" value="Create Ticket">Create Ticket</button>
+        <button type="submit" className="btn" value="Create Ticket">
+          Create Ticket
+        </button>
       </form>
     </div>
   );

@@ -1,4 +1,4 @@
-"use client";
+"use client"; // allows for client side rendering. useful for pieces that users need to interact with like buttons
 import { useRouter } from "next/navigation"; // not next/router
 import React, { useState } from "react";
 
@@ -17,6 +17,7 @@ const TicketForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     //relative to current page's url
+    // only works when using the client so you need use client at the top
     //becomes: https://[current-domain]/api/Tickets
 
     const res = await fetch("/api/Tickets", {

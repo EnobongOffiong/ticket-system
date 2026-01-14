@@ -18,7 +18,8 @@ const TicketForm = () => {
     e.preventDefault();
     //relative to current page's url
     //becomes: https://[current-domain]/api/Tickets
-    const res = await fetch("api/Tickets", {
+    
+    const res = await fetch("/api/Tickets", {
       method: "POST",
       body: JSON.stringify({ formData }),
       "content-type": "application/json",
@@ -26,6 +27,7 @@ const TicketForm = () => {
 
     if (!res.ok) {
       throw new Error("Failed to create ticket");
+      
     }
 
     router.refresh()

@@ -18,11 +18,11 @@ const TicketForm = () => {
     e.preventDefault();
     //relative to current page's url
     //becomes: https://[current-domain]/api/Tickets
-    
+
     const res = await fetch("/api/Tickets", {
       method: "POST",
       body: JSON.stringify({ formData }),
-      "content-type": "application/json",
+      "Content-type": "application/json",
     });
 
     if (!res.ok) {
@@ -30,8 +30,9 @@ const TicketForm = () => {
       
     }
 
-    router.refresh()
     router.push("/")
+    router.refresh()
+    
   };
   const startingTicketData = {
     title: "",

@@ -3,7 +3,8 @@ import { useRouter } from "next/navigation"; // not next/router
 import React, { useState } from "react";
 
 const TicketForm = () => {
-    const router  = useRouter()
+  const router = useRouter();
+
   const handleChange = (e) => {
     const value = e.target.value;
     const name = e.target.name;
@@ -16,10 +17,10 @@ const TicketForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     //relative to current page's url
     // only works when using the client so you need use client at the top
     //becomes: https://[current-domain]/api/Tickets
-
     const res = await fetch("/api/Tickets", {
       method: "POST",
       body: JSON.stringify({ formData }),
@@ -28,13 +29,12 @@ const TicketForm = () => {
 
     if (!res.ok) {
       throw new Error("Failed to create ticket");
-      
     }
 
-    router.push("/")
-    router.refresh()
-    
+    router.push("/");
+    router.refresh();
   };
+
   const startingTicketData = {
     title: "",
     description: "",

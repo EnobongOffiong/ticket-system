@@ -2,7 +2,8 @@
 import { useRouter } from "next/navigation"; // not next/router
 import React, { useState } from "react";
 
-const TicketForm = () => {
+const TicketForm = ({ ticket }) => {
+  const EDITMODE = ticket._id === "new" ? false : true;
   const router = useRouter();
 
   const handleChange = (e) => {
@@ -17,7 +18,22 @@ const TicketForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if(EDITMODE){
+      const res = await fetch(`/api/Tickets/${ticket._id}`, {
+        method: "PUT",
+        body: JSON.stringify({ formData }),
+        "Content-type": "application/json",
+      });
+  
+      if (!res.ok) {
+        throw new Error("Failed to update ticket");
+      }
+  
+      router.push("/");
+      router.refresh();
+    }else{
 
+    
     //relative to current page's url
     // only works when using the client so you need use client at the top
     //becomes: https://[current-domain]/api/Tickets
@@ -33,6 +49,7 @@ const TicketForm = () => {
 
     router.push("/");
     router.refresh();
+  }
   };
 
   const startingTicketData = {
@@ -44,6 +61,21 @@ const TicketForm = () => {
     category: "Hardware Problem",
   };
 
+  if (EDITMODE) {
+    startingTicketData["title"] = ticket.title;
+    startingTicketData["description"] = ticket.description;
+    startingTicketData["priority"] = ticket.priority;
+    startingTicketData["progress"] = ticket.progress;
+    startingTicketData["status"] = ticket.status;
+    startingTicketData["category"] = ticket.category;
+  }
+
+  let header = !EDITMODE ? (
+    <h3>Create Your Ticket</h3>
+  ) : (
+    <h3>Edit Your Ticket</h3>
+  );
+
   const [formData, setFormData] = useState(startingTicketData);
 
   return (
@@ -53,7 +85,7 @@ const TicketForm = () => {
         method="post"
         onSubmit={handleSubmit}
       >
-        <h3>Create Your Ticket</h3>
+        <h3>{EDITMODE ? "Update Your Ticket" : "Create Your Ticket"}</h3>
         <label>Title</label>
         <input
           id="title"
@@ -158,8 +190,12 @@ const TicketForm = () => {
           <option value="Done">Done</option>
         </select>
 
-        <button type="submit" className="btn" value="Create Ticket">
-          Create Ticket
+        <button
+          type="submit"
+          className="btn"
+          value={EDITMODE ? "Update Ticket" : "Create Ticket"}
+        >
+          {EDITMODE ? "Update Ticket" : "Create Ticket"}
         </button>
       </form>
     </div>

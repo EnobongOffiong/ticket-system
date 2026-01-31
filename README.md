@@ -30,20 +30,34 @@ This project was built to practice real-world full-stack development concepts, i
 
 ## 🔗 API Routes
 
-| GET | `/api/Tickets` | Fetch all tickets |
-| POST | `/api/Tickets` | Create a new ticket |
-| GET | `/api/Tickets/[id]` | Fetch a ticket by ID |
-| PUT | `/api/Tickets/[id]` | Update a ticket by ID |
-| DELETE | `/api/Tickets/[id]` | Delete a ticket by ID |
+- | GET | `/api/Tickets` | Fetch all tickets |
+- | POST | `/api/Tickets` | Create a new ticket |
+- | GET | `/api/Tickets/[id]` | Fetch a ticket by ID |
+- | PUT | `/api/Tickets/[id]` | Update a ticket by ID |
+- | DELETE | `/api/Tickets/[id]` | Delete a ticket by ID |
 
 ---
 
-## ⚙️ Getting Started (Local Setup)
+## ⚙️ Local Setup
 
+### Prerequisites
+* Node.js and npm installed on your machine.
+  
 ### 1. Clone the repository
 bash
 git clone https://github.com/EnobongOffiong/ticket-system.git
 cd ticket-system
+
+2. **Install project dependencies**
+     npm install
+
+3.  **Set up environment variables**
+    Create a .env.local file in the root directory:
+    MONGODB_URI=your_mongodb_connection_string
+
+4. **Run the development server**
+   npm run dev
+   This will run the app on your machine. Open [http://localhost:3000] to view it in your browser.
 
 
 

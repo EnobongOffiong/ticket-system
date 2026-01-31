@@ -59,6 +59,11 @@ cd ticket-system
    npm run dev
    This will run the app on your machine. Open [http://localhost:3000] to view it in your browser.
 
+## Future Improvements
+- User authentication and role-based access (admin vs user)
+- Filtering and sorting tickets
+- Pages for large ticket lists
+- Deployment to Vercel with MongoDB Atlas
 
 <!---
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.

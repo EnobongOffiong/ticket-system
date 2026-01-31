@@ -1,33 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# 🎟️ Ticket Management System
 
-First, run the development server:
+A full-stack ticket management web application built with **Next.js (App Router)** and **MongoDB**.  
+The app allows users to create, view, and manage support tickets through RESTful API routes and a React-based interface.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+This project was built to practice real-world full-stack development concepts, including API design, database modeling, dynamic routing, and server-side rendering behavior in Next.js.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🚀 Features
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Create, view, and manage(update/delete) support tickets
+- Dynamic API routes using route parameters 
+- Backend data modeling with MongoDB and Mongoose
+- Server-side logic using Next.js App Router API handlers
+- error handling and HTTP status responses
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠 Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Frontend:** Next.js, React
+- **Backend:** Next.js API Routes
+- **Database:** MongoDB, Mongoose
+- **Styling:** Tailwind CSS
+- **Language:** JavaScript (ES6+)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🔗 API Routes
+
+| GET | `/api/Tickets` | Fetch all tickets |
+| POST | `/api/Tickets` | Create a new ticket |
+| GET | `/api/Tickets/[id]` | Fetch a ticket by ID |
+| PUT | `/api/Tickets/[id]` | Update a ticket by ID |
+| DELETE | `/api/Tickets/[id]` | Delete a ticket by ID |
+
+---
+
+## ⚙️ Getting Started (Local Setup)
+
+### 1. Clone the repository
+bash
+git clone https://github.com/EnobongOffiong/ticket-system.git
+cd ticket-system
+
+
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
